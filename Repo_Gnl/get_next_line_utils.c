@@ -6,7 +6,7 @@
 /*   By: ikruiz-g <ikruiz-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 16:46:35 by ikruiz-g          #+#    #+#             */
-/*   Updated: 2025/02/06 17:45:12 by ikruiz-g         ###   ########.fr       */
+/*   Updated: 2025/02/10 20:11:58 by ikruiz-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,28 @@ char	*ft_strdup(const char *s)
 	}
 	copy[lenght] = '\0';
 	return (copy);
+}
+
+char	*ft_substr(char const *s, unsigned int start, size_t len)
+{
+	char	*substr;
+	size_t	i;
+
+	if (!s)
+		return (NULL);
+	if (start >= ft_strlen(s))
+		return (ft_strdup(""));
+	substr = (char *)malloc(sizeof(char) * (len + 1));
+	if (!substr)
+		return (NULL);
+	i = 0;
+	while (i < len && s[start + i])
+	{
+		substr[i] = s[start + i];
+		i++;
+	}
+	substr[i] = '\0';
+	return (substr);
 }
 
 char	*ft_strjoin(char const *s1, char const *s2)
